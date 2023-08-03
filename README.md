@@ -1,4 +1,4 @@
-# Hostel Management Application
+# JECRC Attendance portal
 
 Created using MERN Stack with Redux
 
