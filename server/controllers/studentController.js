@@ -6,13 +6,11 @@ const addStudent = asyncHandler(async (req, res) => {
   const {
     name,
     address,
-    category,
     city,
     contact,
     fatherContact,
     image,
     roomNo,
-    blockNo,
     status,
   } = req.body;
 
@@ -26,13 +24,11 @@ const addStudent = asyncHandler(async (req, res) => {
   const student = await Student.create({
     name,
     address,
-    category,
     city,
     contact,
     fatherContact,
     image,
     roomNo,
-    blockNo,
     status,
   });
 
@@ -41,13 +37,13 @@ const addStudent = asyncHandler(async (req, res) => {
       _id: student._id,
       name: student.name,
       address: student.address,
-      category: student.category,
+      
       city: student.city,
       contact: student.contact,
       fatherContact: student.fatherContact,
       image: student.image,
       roomNo: student.roomNo,
-      blockNo: student.blockNo,
+     
       status: student.status,
     });
   } else {
@@ -61,13 +57,13 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
   if (student) {
     student.name = req.body.name || student.name;
     student.address = req.body.address || student.address;
-    student.category = req.body.category || student.category;
+    
     student.city = req.body.city || student.city;
     student.contact = req.body.contact || student.contact;
     student.fatherContact = req.body.fatherContact || student.fatherContact;
     student.image = req.body.image || student.image;
     student.roomNo = req.body.roomNo || student.roomNo;
-    student.blockNo = req.body.blockNo || student.blockNo;
+    
     student.status = req.body.status || student.status;
     const updatedStudent = await student.save();
 
@@ -75,13 +71,13 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
       _id: updatedStudent._id,
       name: updatedStudent.name,
       address: updatedStudent.address,
-      category: updatedStudent.category,
+     
       city: updatedStudent.city,
       contact: updatedStudent.contact,
       fatherContact: updatedStudent.fatherContact,
       image: updatedStudent.image,
       roomNo: updatedStudent.roomNo,
-      blockNo: updatedStudent.blockNo,
+     
       status: updatedStudent.status,
     });
   } else {

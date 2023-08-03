@@ -14,13 +14,11 @@ const AddStudentView = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [category, setCategory] = useState("");
   const [city, setCity] = useState("");
   const [contact, setContact] = useState("");
   const [fatherContact, setFatherContact] = useState("");
   const [image, setImage] = useState("");
   const [roomNo, setRoomNo] = useState("");
-  const [blockNo, setBlockNo] = useState("");
   const [status, setStatus] = useState("Hostel");
 
   const dispatch = useDispatch();
@@ -43,13 +41,11 @@ const AddStudentView = () => {
       const student = history.location.state.studentProps;
       setName(student.name);
       setAddress(student.address);
-      setCategory(student.category);
       setCity(student.city);
       setContact(student.contact);
       setFatherContact(student.fatherContact);
       setImage(student.image);
       setRoomNo(student.roomNo);
-      setBlockNo(student.blockNo);
       setStatus(student.status);
     }
     if (success) {
@@ -65,13 +61,11 @@ const AddStudentView = () => {
           _id,
           name,
           address,
-          category,
           city,
           contact,
           fatherContact,
           image,
           roomNo,
-          blockNo,
           status,
         })
       );
@@ -80,13 +74,11 @@ const AddStudentView = () => {
         addStudent({
           name,
           address,
-          category,
           city,
           contact,
           fatherContact,
           image,
           roomNo,
-          blockNo,
           status,
         })
       );
@@ -119,13 +111,13 @@ const AddStudentView = () => {
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId="status">
-              <Form.Label>Status</Form.Label>
+              <Form.Label>Branch</Form.Label>
               <Form.Control
                 as="select"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
-                {["Hostel", "Outside", "Home"].map((x) => (
+                {["ECE", "IT", "CSE","AI&DS"].map((x) => (
                   <option key={x + 1} value={x + 1}>
                     {x}
                   </option>
@@ -169,23 +161,15 @@ const AddStudentView = () => {
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId="roomNo">
-              <Form.Label>Room No</Form.Label>
+              <Form.Label>Semester</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Room no"
+                placeholder="Enter Semester"
                 value={roomNo}
                 onChange={(e) => setRoomNo(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="b">
-              <Form.Label>Block Number</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Block Number"
-                value={blockNo}
-                onChange={(e) => setBlockNo(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+        
             <Form.Group controlId="image">
               <Form.Label>Image Url</Form.Label>
               <Form.Control
@@ -195,15 +179,7 @@ const AddStudentView = () => {
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Stream"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+      
             <Button type="submit" variant="primary" onClick={submitHandler}>
               {isEdit ? "Update" : "Add Student"}
             </Button>

@@ -17,9 +17,7 @@ const Student = ({ stuentDetails: student }) => {
         <Row>
           <Col>Room No: {student.roomNo}</Col>
         </Row>
-        <Row>
-          <Col>Stream: {student.category}</Col>
-        </Row>
+
         <Card.Text>
           Contact:
           <a href={`tel:${student.contact}`}>{student.contact}</a>
